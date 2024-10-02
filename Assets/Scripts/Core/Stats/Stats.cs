@@ -1,6 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using CameraRelated;
+
 
 public class Stats : MonoBehaviour
 {
@@ -9,6 +9,9 @@ public class Stats : MonoBehaviour
     public Stat health;
 
     [SerializeField] protected float _currentHealth;
+
+    [SerializeField] private float _cameraShakeIntensity;
+    [SerializeField] private float _cameraShakeTime;
 
     public delegate void OnHealthChanged(float health);
     public event OnHealthChanged onHealthChanged;
@@ -27,7 +30,9 @@ public class Stats : MonoBehaviour
         _currentHealth -= attacker.attackPower.GetValue();
         onHealthChanged?.Invoke(_currentHealth);
 
-        _entity.Knockback();
+        _entity.Knockback(attacker);
+
+        CameraShakeManager.ShakeWithoutProfile(_cameraShakeIntensity, _cameraShakeTime);
 
         if (_currentHealth <= 0)
             Die();

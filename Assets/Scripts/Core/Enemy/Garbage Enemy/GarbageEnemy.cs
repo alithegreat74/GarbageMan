@@ -16,10 +16,13 @@ public class GarbageEnemy : Enemy
     #region Variables
     public float detectionRange;
     public float minDistance;
-
+    [Header("Movement")]
     [SerializeField] private float jumpPower;
     [SerializeField] private float jumpDuration;
 
+    [Header("Knockback")]
+    [SerializeField] private float knockbackJumpPower;
+    [SerializeField] private float knockbackJumpDuration;
     private bool _isJumping;
     #endregion
 
@@ -50,6 +53,15 @@ public class GarbageEnemy : Enemy
 
         _isJumping = true;
         transform.DOJump(transform.position + direction * stats.moveSpeed.GetValue(), jumpPower, 1, jumpDuration).OnComplete(() => _isJumping = false);
+    }
+
+    public override void Knockback(Stats stats)
+    {
+        Vector3 direction = stats.transform.position - transform.position;
+
+        direction *= -1;
+
+        transform.DOJump(transform.position + direction, jumpPower, 1, jumpDuration);
     }
 }
 

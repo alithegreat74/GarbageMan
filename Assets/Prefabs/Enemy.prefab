@@ -52,6 +52,8 @@ MonoBehaviour:
   minDistance: 0.2
   jumpPower: 0.3
   jumpDuration: 0.3
+  knockbackJumpPower: 0.2
+  knockbackJumpDuration: 0.2
 --- !u!54 &1176116878
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -101,9 +103,11 @@ MonoBehaviour:
     _startValue: 1
     _modifiers: []
   health:
-    _startValue: 1
+    _startValue: 6
     _modifiers: []
   _currentHealth: 0
+  _cameraShakeIntensity: 1
+  _cameraShakeTime: 0.5
 --- !u!1 &1705872406636244926
 GameObject:
   m_ObjectHideFlags: 0
