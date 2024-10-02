@@ -49,7 +49,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   facingRight: 1
   detectionRange: 100
-  minDistance: 0.5
+  minDistance: 0.2
+  jumpPower: 0.3
+  jumpDuration: 0.3
 --- !u!54 &1176116878
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -93,13 +95,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed:
-    _startValue: 3
+    _startValue: 0.75
     _modifiers: []
   attackPower:
     _startValue: 1
     _modifiers: []
   health:
-    _startValue: 0
+    _startValue: 1
     _modifiers: []
   _currentHealth: 0
 --- !u!1 &1705872406636244926
