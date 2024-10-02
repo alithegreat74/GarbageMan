@@ -19,6 +19,9 @@ public class Player : Entity
     public GameObject follower;
 
     public Vector2 faceOrientation;
+
+    public ParticleSystem jarooSlash1;
+
     protected override void Awake()
     {
         base.Awake();	
@@ -51,7 +54,6 @@ public class Player : Entity
         else
         {
             Gizmos.DrawWireSphere(new Vector3(attackDistance * input.x + transform.position.x, transform.position.y, transform.position.z + input.y * attackDistance), attackRange);
-
         }
     }
 
