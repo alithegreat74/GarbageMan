@@ -14,6 +14,8 @@ public class PlayerAttackState : PlayerState
     {
         base.Enter();
         //CameraShakeManager.instance.ShakeWithoutProfile(1f, 0.2f);
+
+        Debug.Log("Attack");
     }
 
     public override void Update()

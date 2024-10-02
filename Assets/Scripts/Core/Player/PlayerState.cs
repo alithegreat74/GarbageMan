@@ -19,7 +19,12 @@ public class PlayerState : State
 
     public override void Update()
     {
-        base.Update();        
+        base.Update();       
+        if(InputHandling.InputHandler.attack.GetValue() && statemachine.currentState.ToString() != "PlayerAttackState")
+        {
+            statemachine.ChangeState(player.AttackState);
+            return;
+        }
     }
 
     public override void Exit()

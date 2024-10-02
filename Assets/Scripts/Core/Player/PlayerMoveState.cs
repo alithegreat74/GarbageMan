@@ -28,11 +28,6 @@ public class PlayerMoveState : PlayerState
             statemachine.ChangeState(player.IdleState);
             return;
         }
-        if (InputHandling.InputHandler.attack.GetValue())
-        {
-            statemachine.ChangeState(player.AttackState);
-            return;
-        }
 
         player.faceOrientation = input;
     }

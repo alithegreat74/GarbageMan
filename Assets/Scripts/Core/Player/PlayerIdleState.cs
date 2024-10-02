@@ -24,12 +24,6 @@ public class PlayerIdleState : PlayerState
             statemachine.ChangeState(player.MoveState);
             return;
         }
-
-        if (InputHandling.InputHandler.attack.GetValue())
-        {
-            statemachine.ChangeState(player.AttackState);
-            return;
-        }
     }
 
     public override void Exit()
