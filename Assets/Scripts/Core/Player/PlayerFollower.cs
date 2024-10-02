@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerFollower : MonoBehaviour
 {
 
-    private void LateUpdate()
+    private void FixedUpdate()
     {
         transform.position=Player.instance.transform.position;
     }
