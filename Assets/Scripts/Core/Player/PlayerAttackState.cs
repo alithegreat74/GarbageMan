@@ -13,6 +13,7 @@ public class PlayerAttackState : PlayerState
     public override void Enter()
     {
         base.Enter();
+        CameraShakeManager.instance.ShakeWithoutProfile(1f, 0.2f);
     }
 
     public override void Update()
