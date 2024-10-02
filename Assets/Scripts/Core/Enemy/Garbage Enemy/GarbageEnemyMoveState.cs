@@ -25,12 +25,13 @@ public class GarbageEnemyMoveState:GarbageEnemyState
     {
         base.Update();
         Vector3 playerDirection = enemy.PlayerDirection();
-        enemy.SetVelocity(playerDirection.x * enemy.stats.moveSpeed.GetValue(), rb.velocity.y, playerDirection.z * enemy.stats.moveSpeed.GetValue());
+        enemy.Move(playerDirection);
         if(enemy.PlayerDistance()<=enemy.minDistance)
         {
             Player.instance.GetComponent<Stats>().TakeDamage(enemy.stats);
-            enemy.SetVelocity(0, 0, 0);
+            return;
         }    
+        
     }
 
 }

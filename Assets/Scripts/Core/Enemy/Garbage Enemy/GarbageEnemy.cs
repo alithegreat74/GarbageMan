@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,6 +16,11 @@ public class GarbageEnemy : Enemy
     #region Variables
     public float detectionRange;
     public float minDistance;
+
+    [SerializeField] private float jumpPower;
+    [SerializeField] private float jumpDuration;
+
+    private bool _isJumping;
     #endregion
 
 
@@ -37,7 +43,14 @@ public class GarbageEnemy : Enemy
         base.Update();
         statemachine.currentState.Update();
     }
-    
+    public void Move(Vector3 direction)
+    {
+        if (_isJumping)
+            return;
+
+        _isJumping = true;
+        transform.DOJump(transform.position + direction * stats.moveSpeed.GetValue(), jumpPower, 1, jumpDuration).OnComplete(() => _isJumping = false);
+    }
 }
 
 

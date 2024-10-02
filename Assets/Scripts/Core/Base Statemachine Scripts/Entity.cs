@@ -13,7 +13,8 @@ public class Entity : MonoBehaviour
 
     [HideInInspector] public int facingRight = 1;
 
-
+    public delegate void OnDeath();
+    public event OnDeath onDeath;
     protected virtual void Awake()
     {
         statemachine=new Statemachine();
@@ -34,6 +35,7 @@ public class Entity : MonoBehaviour
     public virtual void Die()
     {
         Destroy(gameObject);
+        onDeath?.Invoke();
     }
 
     public virtual void Knockback()
