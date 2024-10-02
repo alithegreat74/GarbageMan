@@ -44,7 +44,7 @@ public class Entity : MonoBehaviour
 
     public virtual void Flip()
     {
-        transform.Rotate(0, 180, 0);
+        //transform.Rotate(0, 180, 0);
         facingRight *= -1;
     }
     public virtual void FlipController()

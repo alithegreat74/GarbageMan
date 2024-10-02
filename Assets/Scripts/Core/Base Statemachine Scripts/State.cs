@@ -6,7 +6,7 @@ public abstract class State
 {
     protected Statemachine statemachine;
     protected Entity entity;
-
+    protected Animator animator;
     protected Rigidbody rb;
 
     private string animBoolName;
@@ -20,6 +20,7 @@ public abstract class State
         this.statemachine = stateMachine;
         this.animBoolName = animBoolName;
         this.rb = entity.rb;
+        this.animator = entity.anim;
     }
 
     public virtual void Enter()

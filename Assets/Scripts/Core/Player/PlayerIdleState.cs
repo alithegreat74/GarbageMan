@@ -20,7 +20,16 @@ public class PlayerIdleState : PlayerState
     {
         base.Update();
         if (InputHandling.InputHandler.move.GetValue() != Vector2.zero)
+        {
             statemachine.ChangeState(player.MoveState);
+            return;
+        }
+
+        if (InputHandling.InputHandler.attack.GetValue())
+        {
+            statemachine.ChangeState(player.AttackState);
+            return;
+        }
     }
 
     public override void Exit()

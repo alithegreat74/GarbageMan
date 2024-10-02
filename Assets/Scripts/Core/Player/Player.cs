@@ -17,6 +17,8 @@ public class Player : Entity
     public static Player instance;
 
     public GameObject follower;
+
+    public Vector2 faceOrientation;
     protected override void Awake()
     {
         base.Awake();	
@@ -25,6 +27,7 @@ public class Player : Entity
     protected override void Start()
     {
         base.Start();
+        faceOrientation = new Vector2(0, 1);
         IdleState = new PlayerIdleState(this, statemachine, "Idle", this);
         MoveState = new PlayerMoveState(this, statemachine, "Move", this);
         AttackState = new PlayerAttackState(this, statemachine, "Attack", this);
@@ -32,7 +35,9 @@ public class Player : Entity
     }
     protected override void Update()
     {
-        base.Update();   
+        base.Update();
+        anim.SetFloat("xVelocity",faceOrientation.x);
+        anim.SetFloat("zVelocity",faceOrientation.y);
     }
 
     private void OnDrawGizmos()
