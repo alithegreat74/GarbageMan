@@ -19,10 +19,7 @@ public class PlayerState : State
 
     public override void Update()
     {
-        base.Update();
-        //Attack If the input is done and if you're not in the atack state
-        if (InputHandling.InputHandler.attack.GetValue() && statemachine.currentState.ToString() != "PlayerAttackState")
-            statemachine.ChangeState(player.AttackState);
+        base.Update();        
     }
 
     public override void Exit()
