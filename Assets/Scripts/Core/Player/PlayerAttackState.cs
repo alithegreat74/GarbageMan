@@ -18,6 +18,8 @@ public class PlayerAttackState : PlayerState
         player.jarooSlash1.Play();
 
         //CameraShakeManager.instance.ShakeWithoutProfile(1f, 0.2f);
+
+        Debug.Log("Attack");
     }
 
     public override void Update()
