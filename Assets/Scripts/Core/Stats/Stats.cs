@@ -7,6 +7,7 @@ public class Stats : MonoBehaviour
     public Stat moveSpeed;
     public Stat attackPower;
     public Stat health;
+    public Stat knockback;
 
     [SerializeField] protected float _currentHealth;
 

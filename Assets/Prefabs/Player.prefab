@@ -136,6 +136,9 @@ MonoBehaviour:
   health:
     _startValue: 100
     _modifiers: []
+  knockback:
+    _startValue: 5
+    _modifiers: []
   _currentHealth: 0
   _cameraShakeIntensity: 1.5
   _cameraShakeTime: 0.5

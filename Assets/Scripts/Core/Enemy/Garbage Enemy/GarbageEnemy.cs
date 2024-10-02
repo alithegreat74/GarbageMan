@@ -61,7 +61,7 @@ public class GarbageEnemy : Enemy
 
         direction *= -1;
 
-        transform.DOJump(transform.position + direction, jumpPower, 1, jumpDuration);
+        transform.DOJump(transform.position + direction * stats.knockback.GetValue(), jumpPower, 1, jumpDuration);
     }
 }
 
