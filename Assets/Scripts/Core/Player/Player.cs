@@ -10,7 +10,10 @@ public class Player : Entity
 	public PlayerAttackState AttackState { get; private set;}
 
     #endregion
-
+    #region Variables
+    public float attackRange;
+    public float attackDistance;
+    #endregion
     public static Player instance;
     protected override void Awake()
     {
@@ -27,8 +30,22 @@ public class Player : Entity
     }
     protected override void Update()
     {
-        base.Update();
-        
+        base.Update();   
     }
-    
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Vector2 input = InputHandling.InputHandler.move.GetValue();
+        if (input == Vector2.zero)
+        {
+            Gizmos.DrawWireSphere(new Vector3(facingRight * attackDistance + transform.position.x, transform.position.y, transform.position.z), attackRange);
+        }
+        else
+        {
+            Gizmos.DrawWireSphere(new Vector3(attackDistance * input.x + transform.position.x, transform.position.y, transform.position.z + input.y * attackDistance), attackRange);
+
+        }
+    }
+
 }

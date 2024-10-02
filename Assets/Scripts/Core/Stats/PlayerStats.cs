@@ -12,8 +12,8 @@ public class PlayerStats : Stats
         if (_invincible)
             return;
 
-        base.TakeDamage(attacker);
         StartCoroutine(SetInvincibility());
+        base.TakeDamage(attacker);
     }
 
     private IEnumerator SetInvincibility()

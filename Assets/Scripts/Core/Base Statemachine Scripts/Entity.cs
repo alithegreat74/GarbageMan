@@ -13,6 +13,7 @@ public class Entity : MonoBehaviour
 
     [HideInInspector] public int facingRight = 1;
 
+
     protected virtual void Awake()
     {
         statemachine=new Statemachine();
@@ -28,6 +29,15 @@ public class Entity : MonoBehaviour
     protected virtual void Update()
     {
         statemachine.currentState.Update();
+    }
+
+    public virtual void Die()
+    {
+        Destroy(gameObject);
+    }
+
+    public virtual void Knockback()
+    {
     }
 
     public virtual void Flip()

@@ -13,8 +13,12 @@ public class Stats : MonoBehaviour
     public delegate void OnHealthChanged(float health);
     public event OnHealthChanged onHealthChanged;
 
+
+    private Entity _entity;
+
     private void Start()
     {
+        _entity = GetComponent<Entity>();
         _currentHealth = health.GetValue();
     }
 
@@ -22,11 +26,21 @@ public class Stats : MonoBehaviour
     {
         _currentHealth -= attacker.attackPower.GetValue();
         onHealthChanged?.Invoke(_currentHealth);
+
+        _entity.Knockback();
+
+        if (_currentHealth <= 0)
+            Die();
     }
 
     public void Heal(float amount)
     {
         _currentHealth += amount;
         onHealthChanged?.Invoke(_currentHealth);
+    }
+
+    private void Die()
+    {
+        _entity.Die();
     }
 }
