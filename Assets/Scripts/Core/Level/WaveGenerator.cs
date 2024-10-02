@@ -78,18 +78,28 @@ namespace Level
             {
                 int rand = UnityEngine.Random.Range(0, _counts.Count);
                 Vector3 spawnPosition = SpawnLocation.SpawnPosition(xMax, zMax, xMin, zMin, enemyY);
-                Instantiate(enemySpawnList[rand].prefab, spawnPosition, Quaternion.identity, null);
+                GameObject obj = Instantiate(enemySpawnList[rand].prefab, spawnPosition, Quaternion.identity, null);
+                obj.GetComponent<Entity>().onDeath += OnEnemyDeath;
                 yield return new WaitForSeconds(spawnRate);
             }
         }
 
-        private void OnEnemyDeath()
+        private void OnEnemyDeath(Entity e)
         {
             _enemyDeathCounter++;
+            e.onDeath -= OnEnemyDeath;
             if(_enemyDeathCounter>=_currentCount)
             {
                 Debug.Log("Wave Finished");
+                StartCoroutine(ReSpawnWave());
             }
+        }
+        private IEnumerator ReSpawnWave()
+        {
+            yield return new WaitForSeconds(waitTime);
+            _currentCount += spawnIncrement;
+            _enemyDeathCounter= 0;
+            GenerateWave();
         }
 
     }

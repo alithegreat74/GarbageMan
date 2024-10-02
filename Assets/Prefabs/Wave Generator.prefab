@@ -50,3 +50,8 @@ MonoBehaviour:
   enemySpawnList:
   - prefab: {fileID: 1705872405519145435, guid: 6f738f7854432114697b48549eecaafa, type: 3}
     spawnRate: 1
+  xMin: -40
+  xMax: 40
+  zMax: 40
+  zMin: -40
+  enemyY: 0

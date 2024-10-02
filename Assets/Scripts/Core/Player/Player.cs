@@ -15,6 +15,8 @@ public class Player : Entity
     public float attackDistance;
     #endregion
     public static Player instance;
+
+    public GameObject follower;
     protected override void Awake()
     {
         base.Awake();	
