@@ -16,12 +16,21 @@ public class GarbageEnemyMoveState:GarbageEnemyState
 
     public override void Exit()
     {
-        base.Exit();    
+        base.Exit();
+        
+
     }
 
     public override void Update()
     {
         base.Update();
+        Vector3 playerDirection = enemy.PlayerDirection();
+        enemy.SetVelocity(playerDirection.x * enemy.stats.moveSpeed.GetValue(), rb.velocity.y, playerDirection.z * enemy.stats.moveSpeed.GetValue());
+        if(enemy.PlayerDistance()<=enemy.minDistance)
+        {
+            Debug.Log("Attack");
+            enemy.SetVelocity(0, 0, 0);
+        }    
     }
 
 }

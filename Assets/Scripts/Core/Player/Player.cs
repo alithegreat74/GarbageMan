@@ -8,14 +8,15 @@ public class Player : Entity
     public PlayerIdleState IdleState { get; private set;}
 	public PlayerMoveState MoveState { get; private set;}
 	public PlayerAttackState AttackState { get; private set;}
-	
+
     #endregion
-    
+
+
+    public static Player instance;
     protected override void Awake()
     {
-        base.Awake();
-        
-		
+        base.Awake();	
+        instance = this;
     }
     protected override void Start()
     {
@@ -28,7 +29,6 @@ public class Player : Entity
     protected override void Update()
     {
         base.Update();
-        Debug.Log(statemachine.currentState);
     }
-    public void SetVelocity(Vector3 velocity)=>rb.velocity = velocity;
+    
 }

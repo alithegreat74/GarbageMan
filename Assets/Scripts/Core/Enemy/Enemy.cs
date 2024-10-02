@@ -20,4 +20,7 @@ public class Enemy : Entity
     {
         base.Update();
     }
+
+    public Vector3 PlayerDirection() => Vector3.Normalize(Player.instance.transform.position - transform.position);
+    public float PlayerDistance()=>Vector3.Distance(transform.position, Player.instance.transform.position);
 }

@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed:
-    _startValue: 0
+    _startValue: 10
     _modifiers: []
   attackPower:
     _startValue: 0

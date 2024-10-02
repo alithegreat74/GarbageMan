@@ -19,7 +19,7 @@ public class PlayerMoveState : PlayerState
     {
         base.Update();
         Vector2 input = InputHandling.InputHandler.move.GetValue();
-        player.SetVelocity(new Vector3(player.stats.moveSpeed.GetValue() * input.x, rb.velocity.y, player.stats.moveSpeed.GetValue()* input.y));
+        player.SetVelocity(player.stats.moveSpeed.GetValue() * input.x, rb.velocity.y, player.stats.moveSpeed.GetValue()* input.y);
         if(input==Vector2.zero)
             statemachine.ChangeState(player.MoveState);
     }

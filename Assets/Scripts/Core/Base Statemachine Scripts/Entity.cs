@@ -29,4 +29,16 @@ public class Entity : MonoBehaviour
     {
         statemachine.currentState.Update();
     }
+
+    protected virtual void Flip()
+    {
+
+    }
+    protected virtual void FlipController()
+    {
+
+    }
+    public void SetVelocity(Vector3 velocity) => rb.velocity = velocity;
+    public void SetVelocity(float x, float y,float z) => rb.velocity = new Vector3(x,y,z);
+
 }

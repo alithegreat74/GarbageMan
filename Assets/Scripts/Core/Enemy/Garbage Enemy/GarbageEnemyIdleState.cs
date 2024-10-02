@@ -16,12 +16,14 @@ public class GarbageEnemyIdleState:GarbageEnemyState
 
     public override void Exit()
     {
-        base.Exit();    
+        base.Exit();
     }
 
     public override void Update()
     {
         base.Update();
+        if (enemy.PlayerDistance() <= enemy.detectionRange)
+            statemachine.ChangeState(enemy.MoveState);
     }
 
 }

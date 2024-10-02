@@ -9,15 +9,18 @@ public class GarbageEnemy : Enemy
     #region States
     public GarbageEnemyIdleState IdleState { get; private set;}
 	public GarbageEnemyMoveState MoveState { get; private set;}
-	
+
+    #endregion
+
+    #region Variables
+    public float detectionRange;
+    public float minDistance;
     #endregion
 
 
     protected override void Awake()
     {
         base.Awake();
-        IdleState = new GarbageEnemyIdleState(this,statemachine,"Idle",this,this);
-		MoveState = new GarbageEnemyMoveState(this,statemachine,"Move",this,this);
 		
     }
 
@@ -25,6 +28,8 @@ public class GarbageEnemy : Enemy
     {
         base.Start();
         //GarbageEnemy starts in the set state if you want to change the first state, change the argument
+        IdleState = new GarbageEnemyIdleState(this,statemachine,"Idle",this,this);
+		MoveState = new GarbageEnemyMoveState(this,statemachine,"Move",this,this);
         statemachine.Initialize(IdleState);
     }
 
