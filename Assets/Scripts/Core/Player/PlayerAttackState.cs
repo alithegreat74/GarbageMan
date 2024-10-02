@@ -13,13 +13,7 @@ public class PlayerAttackState : PlayerState
     public override void Enter()
     {
         base.Enter();
-
-
-        player.jarooSlash1.Play();
-
-        //CameraShakeManager.instance.ShakeWithoutProfile(1f, 0.2f);
-
-        Debug.Log("Attack");
+        player.slashParticle.Play();
     }
 
     public override void Update()
@@ -29,17 +23,14 @@ public class PlayerAttackState : PlayerState
         Vector2 input = InputHandling.InputHandler.move.GetValue();
 
         if (input == Vector2.zero)
-        {
-            player.jarooSlash1.gameObject.transform.position = new Vector3(player.facingRight * player.attackDistance/2 + player.transform.position.x, player.transform.position.y, player.transform.position.z);
-            var targetAngle = Mathf.Atan2(input.x, input.y) * Mathf.Rad2Deg;
-            player.jarooSlash1.gameObject.transform.rotation = Quaternion.Euler(82.5f, targetAngle + 90, 0f);
-        }
+            player.slashParticle.gameObject.transform.position = 
+                new Vector3(player.facingRight * player.attackDistance/2 + player.transform.position.x, player.transform.position.y, player.transform.position.z);
         else
-        {
-            player.jarooSlash1.gameObject.transform.position = new Vector3(player.attackDistance/2 * input.x + player.transform.position.x, player.transform.position.y, player.transform.position.z + input.y * player.attackDistance);
-            var targetAngle = Mathf.Atan2(input.x, input.y) * Mathf.Rad2Deg;
-            player.jarooSlash1.gameObject.transform.rotation = Quaternion.Euler(82.5f, targetAngle + 90, 0f);
-        }
+            player.slashParticle.gameObject.transform.position = 
+                new Vector3(player.attackDistance/2 * input.x + player.transform.position.x, player.transform.position.y, player.transform.position.z + input.y * player.attackDistance);
+        
+        var targetAngle = Mathf.Atan2(input.x, input.y) * Mathf.Rad2Deg;
+        player.slashParticle.gameObject.transform.rotation = Quaternion.Euler(82.5f, targetAngle + 90, 0f);
 
         if (triggerCalled)
         {
@@ -47,8 +38,6 @@ public class PlayerAttackState : PlayerState
                 statemachine.ChangeState(player.MoveState);
             else
                 statemachine.ChangeState(player.IdleState);
-
-            return;
         }   
     }
 

@@ -20,7 +20,7 @@ public class Player : Entity
 
     public Vector2 faceOrientation;
 
-    public ParticleSystem jarooSlash1;
+    public ParticleSystem slashParticle;
 
     protected override void Awake()
     {

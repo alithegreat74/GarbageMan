@@ -84,7 +84,7 @@ MonoBehaviour:
   attackDistance: 1.5
   follower: {fileID: 0}
   faceOrientation: {x: 0, y: 0}
-  jarooSlash1: {fileID: 2648778590789961393}
+  slashParticle: {fileID: 2648778590789961393}
 --- !u!54 &590030479
 Rigidbody:
   m_ObjectHideFlags: 0
