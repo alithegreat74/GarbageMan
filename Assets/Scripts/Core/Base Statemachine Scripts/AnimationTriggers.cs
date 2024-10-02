@@ -9,7 +9,6 @@ public class AnimationTriggers : MonoBehaviour
     protected void TriggerAnimation()
     {
         Debug.Log("trigger called");
-
         player.statemachine.currentState.TriggerAnimation();
     }
 
