@@ -47,7 +47,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1d821a710154c144adbeffa478c25bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  facingRight: 1
   detectionRange: 100
+  minDistance: 0.5
 --- !u!54 &1176116878
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -62,7 +64,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!136 &1176116877
 CapsuleCollider:
@@ -72,7 +74,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1705872405519145435}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 1
@@ -192,7 +194,7 @@ Animator:
   m_GameObject: {fileID: 1705872406636244926}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6be252ab4414de14f8fd01a3cbdb1707, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

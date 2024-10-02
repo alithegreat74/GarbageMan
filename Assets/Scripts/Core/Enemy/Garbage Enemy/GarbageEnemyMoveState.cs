@@ -28,7 +28,7 @@ public class GarbageEnemyMoveState:GarbageEnemyState
         enemy.SetVelocity(playerDirection.x * enemy.stats.moveSpeed.GetValue(), rb.velocity.y, playerDirection.z * enemy.stats.moveSpeed.GetValue());
         if(enemy.PlayerDistance()<=enemy.minDistance)
         {
-            Debug.Log("Attack");
+            Player.instance.GetComponent<Stats>().TakeDamage(enemy.stats);
             enemy.SetVelocity(0, 0, 0);
         }    
     }

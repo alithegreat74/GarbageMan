@@ -11,7 +11,7 @@ public class Entity : MonoBehaviour
     public Stats stats { get; private set; }
     #endregion
 
-
+    [HideInInspector] public int facingRight = 1;
 
     protected virtual void Awake()
     {
@@ -30,15 +30,19 @@ public class Entity : MonoBehaviour
         statemachine.currentState.Update();
     }
 
-    protected virtual void Flip()
+    public virtual void Flip()
     {
-
+        transform.Rotate(0, 180, 0);
+        facingRight *= -1;
     }
-    protected virtual void FlipController()
+    public virtual void FlipController()
     {
-
+        if (rb.velocity.x > 0 && facingRight < 0)
+            Flip();
+        else if(rb.velocity.x<0 && facingRight > 0)
+            Flip();
+            
     }
     public void SetVelocity(Vector3 velocity) => rb.velocity = velocity;
     public void SetVelocity(float x, float y,float z) => rb.velocity = new Vector3(x,y,z);
-
 }

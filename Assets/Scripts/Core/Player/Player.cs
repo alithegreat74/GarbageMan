@@ -11,7 +11,6 @@ public class Player : Entity
 
     #endregion
 
-
     public static Player instance;
     protected override void Awake()
     {
@@ -29,6 +28,7 @@ public class Player : Entity
     protected override void Update()
     {
         base.Update();
+        
     }
     
 }

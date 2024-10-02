@@ -18,10 +18,11 @@ public class PlayerMoveState : PlayerState
     public override void Update()
     {
         base.Update();
+        entity.FlipController();
         Vector2 input = InputHandling.InputHandler.move.GetValue();
         player.SetVelocity(player.stats.moveSpeed.GetValue() * input.x, rb.velocity.y, player.stats.moveSpeed.GetValue()* input.y);
         if(input==Vector2.zero)
-            statemachine.ChangeState(player.MoveState);
+            statemachine.ChangeState(player.IdleState);
     }
 
     public override void Exit()

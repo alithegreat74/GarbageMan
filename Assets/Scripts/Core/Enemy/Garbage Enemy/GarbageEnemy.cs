@@ -20,8 +20,7 @@ public class GarbageEnemy : Enemy
 
     protected override void Awake()
     {
-        base.Awake();
-		
+        base.Awake();	
     }
 
     protected override void Start()
@@ -38,7 +37,7 @@ public class GarbageEnemy : Enemy
         base.Update();
         statemachine.currentState.Update();
     }
-
+    
 }
 
 

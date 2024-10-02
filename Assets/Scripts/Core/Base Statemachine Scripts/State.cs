@@ -11,6 +11,8 @@ public abstract class State
 
     private string animBoolName;
 
+    protected bool triggerCalled;
+
 
     public State(Entity entity, Statemachine stateMachine, string animBoolName)
     {
@@ -23,6 +25,7 @@ public abstract class State
     public virtual void Enter()
     {
         entity.anim.SetBool(animBoolName, true);
+        triggerCalled = false;
         
     }
 
@@ -37,5 +40,8 @@ public abstract class State
     {
         entity.anim.SetBool(animBoolName, false);
     }
-
+    public void TriggerAnimation()
+    {
+        triggerCalled = true;
+    }
 }

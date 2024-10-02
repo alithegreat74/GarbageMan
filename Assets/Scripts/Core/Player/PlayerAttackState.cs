@@ -18,6 +18,8 @@ public class PlayerAttackState : PlayerState
     public override void Update()
     {
         base.Update();
+        if (triggerCalled)
+            statemachine.ChangeState(player.IdleState);
     }
 
     public override void Exit()
