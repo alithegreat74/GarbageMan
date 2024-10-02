@@ -18,6 +18,10 @@ public class PlayerMoveState : PlayerState
     public override void Update()
     {
         base.Update();
+        Vector2 input = InputHandling.InputHandler.move.GetValue();
+        player.SetVelocity(new Vector3(player.stats.moveSpeed.GetValue() * input.x, rb.velocity.y, player.stats.moveSpeed.GetValue()* input.y));
+        if(input==Vector2.zero)
+            statemachine.ChangeState(player.MoveState);
     }
 
     public override void Exit()

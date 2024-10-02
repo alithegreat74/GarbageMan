@@ -13,11 +13,14 @@ public class PlayerIdleState : PlayerState
     public override void Enter()
     {
         base.Enter();
+        player.SetVelocity(new Vector3(0, rb.velocity.y, 0));
     }
 
     public override void Update()
     {
         base.Update();
+        if (InputHandling.InputHandler.move.GetValue() != Vector2.zero)
+            statemachine.ChangeState(player.MoveState);
     }
 
     public override void Exit()

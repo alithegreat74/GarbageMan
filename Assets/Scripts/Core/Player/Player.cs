@@ -14,19 +14,21 @@ public class Player : Entity
     protected override void Awake()
     {
         base.Awake();
-        IdleState = new PlayerIdleState(this,statemachine,"Idle",this);
-		MoveState = new PlayerMoveState(this,statemachine,"Move",this);
-		AttackState = new PlayerAttackState(this,statemachine,"Attack",this);
+        
 		
     }
     protected override void Start()
     {
         base.Start();
+        IdleState = new PlayerIdleState(this, statemachine, "Idle", this);
+        MoveState = new PlayerMoveState(this, statemachine, "Move", this);
+        AttackState = new PlayerAttackState(this, statemachine, "Attack", this);
         statemachine.Initialize(IdleState);
     }
     protected override void Update()
     {
         base.Update();
-
+        Debug.Log(statemachine.currentState);
     }
+    public void SetVelocity(Vector3 velocity)=>rb.velocity = velocity;
 }

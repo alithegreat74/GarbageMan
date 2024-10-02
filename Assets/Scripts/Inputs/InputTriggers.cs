@@ -14,9 +14,6 @@ namespace InputHandling
             Trigger = true;
             yield return new WaitForSeconds(0.1f);
             Trigger = false;
-#if UNITY_EDITOR
-            Debug.Log("Attacked");
-#endif
         }
         public bool GetValue() => Trigger;
        
@@ -28,9 +25,6 @@ namespace InputHandling
         public void Trigger(Vector2 val)
         {
             this.Value = val;
-#if UNITY_EDITOR
-            Debug.Log($"Movemnt value: {val}");
-#endif
         }
         public Vector2 GetValue() => Value;
     }

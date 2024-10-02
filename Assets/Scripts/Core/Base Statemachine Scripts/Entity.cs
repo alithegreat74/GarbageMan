@@ -8,6 +8,7 @@ public class Entity : MonoBehaviour
     public Animator anim { get; private set; }
     public Rigidbody rb { get; private set; }
     public Statemachine statemachine { get; private set;}
+    public Stats stats { get; private set; }
     #endregion
 
 
@@ -21,6 +22,7 @@ public class Entity : MonoBehaviour
     {
         anim = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody>();
+        stats = GetComponent<Stats>();
     }
 
     protected virtual void Update()
