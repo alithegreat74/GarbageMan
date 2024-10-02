@@ -78,7 +78,7 @@ namespace Level
             {
                 int rand = UnityEngine.Random.Range(0, _counts.Count);
                 Vector3 spawnPosition = SpawnLocation.SpawnPosition(xMax, zMax, xMin, zMin, enemyY);
-                GameObject obj = Instantiate(enemySpawnList[rand].prefab, spawnPosition, Quaternion.identity, null);
+                GameObject obj = Instantiate(enemySpawnList[rand].prefab, spawnPosition, Quaternion.Euler(82,0,0), null);
                 obj.GetComponent<Entity>().onDeath += OnEnemyDeath;
                 yield return new WaitForSeconds(spawnRate);
             }
