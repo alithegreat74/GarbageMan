@@ -10,7 +10,7 @@ public class ParticleCleaner : MonoBehaviour
     private float _timer;
     private void OnEnable()
     {
-        _timer = destroyTime;
+        _timer = 0;
     }
 
     private void Update()

@@ -130,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1368798723, guid: ae2f6d281939e07478299460bd93cce0, type: 3}
+      propertyPath: knockback._startValue
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 2360655869569300286, guid: ae2f6d281939e07478299460bd93cce0, type: 3}
       propertyPath: simulationSpeed
       value: 3
