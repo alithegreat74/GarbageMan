@@ -18,7 +18,7 @@ public class PlayerAttackState : PlayerState
         player.comboCount++;
         player.comboCount %= player.slashes.Count;
 
-        animator.SetInteger("ComboCount",player.comboCount);
+        animator.SetInteger("Combo Count",player.comboCount);
         if (Time.time > _lastAttackTime + player.comboTime)
             player.comboCount = 0;
         player.slashes[player.comboCount].Play();

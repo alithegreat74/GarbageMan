@@ -22,8 +22,7 @@ public class GarbageEnemy : Enemy
     [SerializeField] private float jumpDuration;
 
     [Header("Knockback")]
-    [SerializeField] private float knockbackJumpPower;
-    [SerializeField] private float knockbackJumpDuration;
+    [SerializeField] private float knockbackDuration;
     private bool _isJumping;
 
     [Header("Particles")]
@@ -35,6 +34,8 @@ public class GarbageEnemy : Enemy
     #endregion
 
 
+    private GarbageEnemyVisualEffects _garbageEnemyVisualEffects;
+
     protected override void Awake()
     {
         base.Awake();	
@@ -44,6 +45,7 @@ public class GarbageEnemy : Enemy
     {
         base.Start();
         //GarbageEnemy starts in the set state if you want to change the first state, change the argument
+        _garbageEnemyVisualEffects=GetComponentInChildren<GarbageEnemyVisualEffects>();
         IdleState = new GarbageEnemyIdleState(this,statemachine,"Idle",this,this);
 		MoveState = new GarbageEnemyMoveState(this,statemachine,"Move",this,this);
         statemachine.Initialize(IdleState);
@@ -68,7 +70,10 @@ public class GarbageEnemy : Enemy
         Vector3 direction = transform.position - stats.transform.position;
 
         GameObject obj = Instantiate(knockbackParticle, transform.position, Quaternion.identity);
+
         obj.GetComponent<ParticleSystem>().Play();
+
+        _garbageEnemyVisualEffects.ChangeColor(Color.red, knockbackDuration);
 
         if (_currentSequence != null && _currentSequence.IsActive())
         {
@@ -96,7 +101,7 @@ public class GarbageEnemy : Enemy
     private IEnumerator Knockback_Cor()
     {
         _isKnockingBack = true;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(knockbackDuration);
         _isKnockingBack = false;
     }
 

@@ -48,11 +48,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   detectionRange: 100
-  minDistance: 0.2
+  minDistance: 0.4
   jumpPower: 0.3
   jumpDuration: 0.3
-  knockbackJumpPower: 0
-  knockbackJumpDuration: 0
+  knockbackDuration: 0.2
   knockbackParticle: {fileID: 1096352044232144, guid: 6e4b9c1925f0d3f4d8446e551a2e20d3, type: 3}
   deathParticle: {fileID: 1892078723244562, guid: ac23fdddfba3c0a41a0fb8b55106fe39, type: 3}
 --- !u!54 &1176116878
@@ -123,6 +122,7 @@ GameObject:
   - component: {fileID: 1705872406636244927}
   - component: {fileID: 1705872406636244925}
   - component: {fileID: 1705872406636244924}
+  - component: {fileID: 2877027426252342444}
   m_Layer: 7
   m_Name: Square
   m_TagString: Untagged
@@ -214,3 +214,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2877027426252342444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1705872406636244926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd223f779c35d84448914f29514f6bd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sr: {fileID: 1705872406636244925}
