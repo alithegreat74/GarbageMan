@@ -26,6 +26,9 @@ public class GarbageEnemy : Enemy
     [SerializeField] private float knockbackJumpDuration;
     private bool _isJumping;
 
+    [Header("Particles")]
+    [SerializeField] private ParticleSystem knockbackParticle;
+
     private bool _isKnockingBack;
     #endregion
 
@@ -61,7 +64,9 @@ public class GarbageEnemy : Enemy
     public override void Knockback(Stats stats)
     {
         Vector3 direction = Vector3.Normalize(transform.position - stats.transform.position);
+        direction.y = 0;
         rb.velocity = direction * stats.knockback.GetValue();
+        knockbackParticle.Play();
         StartCoroutine(Knockback_Cor());
     }
 
