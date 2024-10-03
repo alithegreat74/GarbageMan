@@ -101,10 +101,10 @@ MonoBehaviour:
     startValue: 0.75
     _modifiers: []
   attackPower:
-    startValue: 5
+    startValue: 1
     _modifiers: []
   health:
-    startValue: 2
+    startValue: 3
     _modifiers: []
   knockback:
     startValue: 0
