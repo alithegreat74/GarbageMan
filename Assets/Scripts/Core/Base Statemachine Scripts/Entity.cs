@@ -11,7 +11,6 @@ public class Entity : MonoBehaviour
     public Stats stats { get; private set; }
     #endregion
 
-    [HideInInspector] public int facingRight = 1;
 
     public delegate void OnDeath(Entity e);
     public event OnDeath onDeath;
@@ -40,20 +39,6 @@ public class Entity : MonoBehaviour
 
     public virtual void Knockback(Stats stats)
     {
-    }
-
-    public virtual void Flip()
-    {
-        //transform.Rotate(0, 180, 0);
-        facingRight *= -1;
-    }
-    public virtual void FlipController()
-    {
-        if (rb.velocity.x > 0 && facingRight < 0)
-            Flip();
-        else if(rb.velocity.x<0 && facingRight > 0)
-            Flip();
-            
     }
     public void SetVelocity(Vector3 velocity) => rb.velocity = velocity;
     public void SetVelocity(float x, float y,float z) => rb.velocity = new Vector3(x,y,z);

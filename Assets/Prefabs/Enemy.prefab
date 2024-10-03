@@ -47,7 +47,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1d821a710154c144adbeffa478c25bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  facingRight: 1
   detectionRange: 100
   minDistance: 0.2
   jumpPower: 0.3
@@ -105,9 +104,12 @@ MonoBehaviour:
   health:
     _startValue: 6
     _modifiers: []
+  knockback:
+    _startValue: 0
+    _modifiers: []
   _currentHealth: 0
-  _cameraShakeIntensity: 1
-  _cameraShakeTime: 0.5
+  _cameraShakeIntensity: 0.5
+  _cameraShakeTime: 0.2
 --- !u!1 &1705872406636244926
 GameObject:
   m_ObjectHideFlags: 0

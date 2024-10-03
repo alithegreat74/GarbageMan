@@ -19,9 +19,11 @@ public class AnimationTriggers : MonoBehaviour
 
         Collider[] colldiers;
 
+        Vector3 playerT = player.transform.position;
+
         if (input == Vector2.zero)
             colldiers = Physics.OverlapSphere
-                (new Vector3(player.transform.position.x + player.attackDistance * player.facingRight, player.transform.position.y, player.transform.position.z), player.attackRange);
+                (new Vector3(playerT.x + player.attackDistance * player.faceOrientation.x, playerT.y, playerT.z + player.attackDistance * player.faceOrientation.y), player.attackRange);
         else
             colldiers = Physics.OverlapSphere
                 (new Vector3(player.transform.position.x + player.attackDistance * input.x, player.transform.position.y, player.transform.position.z + player.attackDistance * input.y), player.attackRange);
