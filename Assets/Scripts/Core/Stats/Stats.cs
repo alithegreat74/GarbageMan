@@ -33,10 +33,10 @@ public class Stats : MonoBehaviour
 
         _entity.Knockback(attacker);
 
-        CameraShakeManager.ShakeWithoutProfile(_cameraShakeIntensity, _cameraShakeTime);
-
         if (_currentHealth <= 0)
             Die();
+        
+        CameraShakeManager.ShakeWithoutProfile(_cameraShakeIntensity, _cameraShakeTime);
     }
 
     public void Heal(float amount)
