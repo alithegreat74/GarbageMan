@@ -13,14 +13,16 @@ public class Player : Entity
     #region Variables
     public float attackRange;
     public float attackDistance;
+
+    public List<ParticleSystem> slashes= new List<ParticleSystem>();
+    [HideInInspector] public int comboCount=0;
+    public float comboTime;
     #endregion
     public static Player instance;
 
     public GameObject follower;
 
     public Vector2 faceOrientation;
-
-    public ParticleSystem slashParticle;
 
     protected override void Awake()
     {

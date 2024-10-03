@@ -1,3 +1,4 @@
+using Codice.Utils;
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
@@ -24,6 +25,11 @@ public class GarbageEnemy : Enemy
     [SerializeField] private float knockbackJumpPower;
     [SerializeField] private float knockbackJumpDuration;
     private bool _isJumping;
+
+    [Header("Particles")]
+    [SerializeField] private ParticleSystem knockbackParticle;
+    [SerializeField] private GameObject deathParticle;
+    private bool _isKnockingBack;
     #endregion
 
 
@@ -48,7 +54,7 @@ public class GarbageEnemy : Enemy
     }
     public void Move(Vector3 direction)
     {
-        if (_isJumping)
+        if (_isJumping || _isKnockingBack)
             return;
 
         _isJumping = true;
@@ -57,11 +63,25 @@ public class GarbageEnemy : Enemy
 
     public override void Knockback(Stats stats)
     {
-        Vector3 direction = stats.transform.position - transform.position;
+        Vector3 direction = Vector3.Normalize(transform.position - stats.transform.position);
+        direction.y = 0;
+        rb.velocity = direction * stats.knockback.GetValue();
+        knockbackParticle.Play();
+        StartCoroutine(Knockback_Cor());
+    }
 
-        direction *= -1;
+    private IEnumerator Knockback_Cor()
+    {
+        _isKnockingBack = true;
+        yield return new WaitForSeconds(0.5f);
+        _isKnockingBack = false;
+    }
 
-        transform.DOJump(transform.position + direction * stats.knockback.GetValue(), jumpPower, 1, jumpDuration);
+    public override void Die()
+    {
+        base.Die();
+        GameObject obj=Instantiate(deathParticle, transform.position, Quaternion.identity);
+        obj.GetComponent<ParticleSystem>().Play();
     }
 }
 
