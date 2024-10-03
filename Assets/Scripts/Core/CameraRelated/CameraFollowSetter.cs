@@ -3,10 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraFollowSetter : MonoBehaviour
+namespace CameraRelated
 {
-    private void OnEnable()
+    public class CameraFollowSetter : MonoBehaviour
     {
-        GetComponent<CinemachineVirtualCamera>().Follow = Player.instance.follower.transform;
+        private void OnEnable()
+        {
+            GetComponent<CinemachineVirtualCamera>().Follow = Player.instance.follower.transform;
+        }
     }
+
 }

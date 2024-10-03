@@ -38,7 +38,7 @@ public class Entity : MonoBehaviour
         onDeath?.Invoke(this);
     }
 
-    public virtual void Knockback()
+    public virtual void Knockback(Stats stats)
     {
     }
 
