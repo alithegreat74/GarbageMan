@@ -27,7 +27,6 @@ public class Upgrade:MonoBehaviour
         timer += Time.deltaTime;
         if(timer>=UpgradeManager.maxTime)
         {
-
             UpgradeManager.RemoveUpgrade(this);
 
             Destroy(gameObject);

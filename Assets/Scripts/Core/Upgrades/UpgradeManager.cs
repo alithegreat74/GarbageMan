@@ -10,6 +10,9 @@ public class UpgradeManager : MonoBehaviour
 
     public static float maxTime;
 
+
+    public  delegate void UpgradeCallback(UpgradeType upgrade);
+    public static event UpgradeCallback OnUpgrade;
     private void Start()
     {
         maxTime = maxTimeRef;
@@ -31,6 +34,8 @@ public class UpgradeManager : MonoBehaviour
                 stats.attackPower.AddModifier(name.value);
                 break;
         }
+
+        OnUpgrade?.Invoke(name.type);
 
         _upgrades.Add(name.type,name);
         return true;
@@ -56,7 +61,7 @@ public class UpgradeManager : MonoBehaviour
                 break;
         }
 
-
+        OnUpgrade?.Invoke(name.type);
         _upgrades.Remove(name.type);
     }
 
