@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1176116877}
   - component: {fileID: 2028423843}
   m_Layer: 7
-  m_Name: Enemy
+  m_Name: Health Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,7 +47,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1d821a710154c144adbeffa478c25bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  items: []
+  items:
+  - {fileID: 6653718732150702887, guid: 83d0d10e2f536244994c1d3d058696ad, type: 3}
   detectionRange: 100
   minDistance: 0.4
   jumpPower: 0.3
