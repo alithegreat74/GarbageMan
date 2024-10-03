@@ -31,7 +31,6 @@ public class PlayerAttackState : PlayerState
 
         Vector2 input = InputHandling.InputHandler.move.GetValue();
         Vector3 playerPos = player.transform.position;
-
         player.SetVelocity(player.stats.moveSpeed.GetValue() * input.x, rb.velocity.y, player.stats.moveSpeed.GetValue() * input.y);
 
         float targetAngle = 0;
@@ -48,7 +47,10 @@ public class PlayerAttackState : PlayerState
             targetAngle = Mathf.Atan2(input.x, input.y) * Mathf.Rad2Deg;
         }
         
-        player.slashes[player.comboCount].gameObject.transform.rotation = Quaternion.Euler(82.5f, targetAngle + 90, 0f);
+        if(player.comboCount==player.slashes.Count-1)
+            player.slashes[player.comboCount].gameObject.transform.rotation = Quaternion.Euler(82.5f, targetAngle + 180, 0f);
+        else
+            player.slashes[player.comboCount].gameObject.transform.rotation = Quaternion.Euler(82.5f, targetAngle + 90, 0f);
 
         if (triggerCalled)
         {
