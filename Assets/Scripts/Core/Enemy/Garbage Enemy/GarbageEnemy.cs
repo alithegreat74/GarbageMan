@@ -27,9 +27,11 @@ public class GarbageEnemy : Enemy
     private bool _isJumping;
 
     [Header("Particles")]
-    [SerializeField] private ParticleSystem knockbackParticle;
+    [SerializeField] private GameObject knockbackParticle;
     [SerializeField] private GameObject deathParticle;
     private bool _isKnockingBack;
+
+    Sequence _currentSequence;
     #endregion
 
 
@@ -54,19 +56,40 @@ public class GarbageEnemy : Enemy
     }
     public void Move(Vector3 direction)
     {
+       
         if (_isJumping || _isKnockingBack)
             return;
-
         _isJumping = true;
-        transform.DOJump(transform.position + direction * stats.moveSpeed.GetValue(), jumpPower, 1, jumpDuration).OnComplete(() => _isJumping = false);
+        _currentSequence = transform.DOJump(transform.position + direction * stats.moveSpeed.GetValue(), jumpPower, 1, jumpDuration).OnComplete(() => _isJumping = false);
     }
 
     public override void Knockback(Stats stats)
     {
-        Vector3 direction = Vector3.Normalize(transform.position - stats.transform.position);
+        Vector3 direction = transform.position - stats.transform.position;
+
+        GameObject obj = Instantiate(knockbackParticle, transform.position, Quaternion.identity);
+        obj.GetComponent<ParticleSystem>().Play();
+
+        if (_currentSequence != null && _currentSequence.IsActive())
+        {
+            _currentSequence.Kill();
+            _isJumping = false;
+        }
+
+        if (direction.x >= 0)
+            direction.x = 1;
+        else
+            direction.x = -1;
+
+        if (direction.z >= 0)
+            direction.z = 1;
+        else
+            direction.z = -1;
+
         direction.y = 0;
+
         rb.velocity = direction * stats.knockback.GetValue();
-        knockbackParticle.Play();
+
         StartCoroutine(Knockback_Cor());
     }
 
