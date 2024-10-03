@@ -52,14 +52,14 @@ MonoBehaviour:
   - prefab: {fileID: 1705872405519145435, guid: 6f738f7854432114697b48549eecaafa, type: 3}
     spawnRate: 14
   - prefab: {fileID: 1705872405519145435, guid: d9ca63754ab068249b29450c84019943, type: 3}
-    spawnRate: 2
+    spawnRate: 1
   - prefab: {fileID: 1705872405519145435, guid: bb66bd0bfff310d4aad0baf47c586abf, type: 3}
-    spawnRate: 2
+    spawnRate: 1
   - prefab: {fileID: 1705872405519145435, guid: 5a59e7f582cb8664aab4da03c848a6de, type: 3}
-    spawnRate: 2
-  xMin: -22
+    spawnRate: 1
+  xMin: -20
   xMax: 20
-  zMax: 5
+  zMax: 2
   zMin: -10
   enemyY: 4
   maxWaveNumber: 4
