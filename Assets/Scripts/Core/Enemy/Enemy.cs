@@ -6,7 +6,8 @@ using UnityEngine;
 //This class is for developing logic that is the same for all the enemies
 public class Enemy : Entity
 {
-
+    public float detectionRange;
+    public float minDistance;
     [SerializeField] private List<GameObject> items = new List<GameObject>();
     protected override void Awake()
     {
@@ -21,6 +22,11 @@ public class Enemy : Entity
     protected override void Update()
     {
         base.Update();
+    }
+    protected void LateUpdate()
+    {
+        if (Vector3.Distance(transform.position, Player.instance.transform.position) >= detectionRange)
+            Die();
     }
 
     public Vector3 PlayerDirection() => Vector3.Normalize(Player.instance.transform.position - transform.position);

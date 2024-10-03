@@ -14,8 +14,7 @@ public class GarbageEnemy : Enemy
     #endregion
 
     #region Variables
-    public float detectionRange;
-    public float minDistance;
+    
     [Header("Movement")]
     [SerializeField] private float jumpPower;
     [SerializeField] private float jumpDuration;

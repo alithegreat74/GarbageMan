@@ -69,7 +69,7 @@ namespace Level
         private void GenerateWave()
         {
             _currentWave++;
-            if (_currentWave >= maxWaveNumber)
+            if (_currentWave > maxWaveNumber)
                 return;
 
             int i = 0;
@@ -81,17 +81,19 @@ namespace Level
 
             onNewWaveGenerated?.Invoke(_currentWave);
             onEnemiesUpdated?.Invoke(currentCount);
-            StartCoroutine(SpawnEnemies(_enemyCounts));
+            StartCoroutine(SpawnEnemies());
         }
 
-        private IEnumerator SpawnEnemies(List<int> _counts)
+        private IEnumerator SpawnEnemies()
         {
 
-            List<int> countsCopy = _counts;
-            List<EnemySpawn> enemySpawnsCopy = enemySpawnList;
+            List<int> countsCopy = new List<int>();
+            countsCopy.AddRange(_enemyCounts);
+            List<EnemySpawn> enemySpawnsCopy = new List<EnemySpawn>();
+            enemySpawnsCopy.AddRange(enemySpawnList);
             for(int i=0;i< currentCount;i++)
             {
-                int rand = UnityEngine.Random.Range(0, _counts.Count);
+                int rand = UnityEngine.Random.Range(0, countsCopy.Count);
                 Vector3 spawnPosition = SpawnLocation.SpawnPosition(xMax, zMax, xMin, zMin, enemyY);
                 GameObject obj = Instantiate(enemySpawnsCopy[rand].prefab, spawnPosition, Quaternion.Euler(82,0,0), null);
 
