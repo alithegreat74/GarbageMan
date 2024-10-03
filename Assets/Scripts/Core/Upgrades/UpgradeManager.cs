@@ -61,7 +61,6 @@ public class UpgradeManager : MonoBehaviour
                 break;
         }
 
-        OnUpgrade?.Invoke(name.type);
         _upgrades.Remove(name.type);
     }
 
