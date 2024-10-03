@@ -28,7 +28,7 @@ public class GarbageEnemy : Enemy
 
     [Header("Particles")]
     [SerializeField] private ParticleSystem knockbackParticle;
-
+    [SerializeField] private GameObject deathParticle;
     private bool _isKnockingBack;
     #endregion
 
@@ -75,6 +75,13 @@ public class GarbageEnemy : Enemy
         _isKnockingBack = true;
         yield return new WaitForSeconds(0.5f);
         _isKnockingBack = false;
+    }
+
+    public override void Die()
+    {
+        base.Die();
+        GameObject obj=Instantiate(deathParticle, transform.position, Quaternion.identity);
+        obj.GetComponent<ParticleSystem>().Play();
     }
 }
 
