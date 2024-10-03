@@ -27,7 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1705872405519145435}
-  m_LocalRotation: {x: 0.656059, y: 0, z: 0, w: 0.75470966}
+  m_LocalRotation: {x: 0.5735764, y: 0, z: 0, w: 0.8191521}
   m_LocalPosition: {x: -0.17113924, y: 0.7584548, z: 3.4504979}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -35,7 +35,7 @@ Transform:
   - {fileID: 2998802389278166802}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 82, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 70, y: 0, z: 0}
 --- !u!114 &1705872405519145447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55,6 +55,7 @@ MonoBehaviour:
   knockbackJumpPower: 0.2
   knockbackJumpDuration: 0.2
   knockbackParticle: {fileID: 2998802389297564242}
+  deathParticle: {fileID: 1892078723244562, guid: ac23fdddfba3c0a41a0fb8b55106fe39, type: 3}
 --- !u!54 &1176116878
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -104,14 +105,14 @@ MonoBehaviour:
     _startValue: 1
     _modifiers: []
   health:
-    _startValue: 100
+    _startValue: 200
     _modifiers: []
   knockback:
     _startValue: 0
     _modifiers: []
   _currentHealth: 0
-  _cameraShakeIntensity: 0.5
-  _cameraShakeTime: 0.2
+  _cameraShakeIntensity: 7
+  _cameraShakeTime: 0.1
 --- !u!1 &1705872406636244926
 GameObject:
   m_ObjectHideFlags: 0
@@ -139,7 +140,7 @@ Transform:
   m_GameObject: {fileID: 1705872406636244926}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 1705872405519145432}
   m_RootOrder: 0
@@ -184,7 +185,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 40ef1f076e3cc874cb79737fba3ec408, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -275,6 +276,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: cacd1207f0709204ba32f1172dd86666, type: 3}
       propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: cacd1207f0709204ba32f1172dd86666, type: 3}
+      propertyPath: simulationSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: cacd1207f0709204ba32f1172dd86666, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: cacd1207f0709204ba32f1172dd86666, type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: cacd1207f0709204ba32f1172dd86666, type: 3}
+      propertyPath: InitialModule.gravityModifier.scalar
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
