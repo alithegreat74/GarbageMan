@@ -98,7 +98,7 @@ namespace Level
                 countsCopy[rand]--;
                 if (countsCopy[rand] <= 0)
                 {
-                    enemySpawnList.RemoveAt(rand); 
+                    enemySpawnsCopy.RemoveAt(rand); 
                     countsCopy.RemoveAt(rand);
                 }
 
