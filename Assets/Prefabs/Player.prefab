@@ -410,8 +410,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyNumber: {fileID: 1158391000}
   slider: {fileID: 62339693043809649}
-  attackPowerImage: {fileID: 0}
-  moveSpeedImage: {fileID: 0}
+  attackPower: {fileID: 8518100592174636883}
+  moveSpeed: {fileID: 7334474527615517727}
 --- !u!1 &2956478939516334896
 GameObject:
   m_ObjectHideFlags: 0
@@ -1261,7 +1261,7 @@ MonoBehaviour:
     startValue: 6
     _modifiers: []
   attackPower:
-    startValue: 0
+    startValue: 1
     _modifiers: []
   health:
     startValue: 100
@@ -1572,7 +1572,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 9.1, y: 29}
+  m_AnchoredPosition: {x: 9.099976, y: 29}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &7985126775844874312
