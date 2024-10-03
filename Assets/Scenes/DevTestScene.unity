@@ -239,6 +239,18 @@ PrefabInstance:
       propertyPath: zMin
       value: -40
       objectReference: {fileID: 0}
+    - target: {fileID: 3936877384356677808, guid: 5214f5c95acbc7248a210f9517fe65e4, type: 3}
+      propertyPath: enemySpawnList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3936877384356677808, guid: 5214f5c95acbc7248a210f9517fe65e4, type: 3}
+      propertyPath: enemySpawnList.Array.data[1].prefab
+      value: 
+      objectReference: {fileID: 1705872405519145435, guid: 6f738f7854432114697b48549eecaafa, type: 3}
+    - target: {fileID: 3936877384356677808, guid: 5214f5c95acbc7248a210f9517fe65e4, type: 3}
+      propertyPath: enemySpawnList.Array.data[1].spawnRate
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3936877384356677809, guid: 5214f5c95acbc7248a210f9517fe65e4, type: 3}
       propertyPath: m_RootOrder
       value: 4
