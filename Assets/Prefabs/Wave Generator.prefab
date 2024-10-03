@@ -43,15 +43,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae4748f2e4faf4c48bae408ec93ba404, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  intialSpawnNumber: 5
-  spawnIncrement: 1
+  intialSpawnNumber: 20
+  spawnIncrement: 20
   waitTime: 2
-  spawnRate: 0.2
+  spawnRate: 0.5
   enemySpawnList:
   - prefab: {fileID: 1705872405519145435, guid: 6f738f7854432114697b48549eecaafa, type: 3}
     spawnRate: 1
-  xMin: -40
-  xMax: 40
-  zMax: 40
-  zMin: -40
+  xMin: -13
+  xMax: 17
+  zMax: 13
+  zMin: -15
   enemyY: 0

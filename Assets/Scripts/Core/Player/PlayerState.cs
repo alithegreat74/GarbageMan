@@ -19,7 +19,15 @@ public class PlayerState : State
 
     public override void Update()
     {
-        base.Update();        
+        base.Update();
+        Vector2 input = InputHandling.InputHandler.move.GetValue();
+        if(input!=Vector2.zero)
+            player.faceOrientation = input;
+        if (InputHandling.InputHandler.attack.GetValue() && statemachine.currentState.ToString() != "PlayerAttackState")
+        {
+            statemachine.ChangeState(player.AttackState);
+            return;
+        }
     }
 
     public override void Exit()

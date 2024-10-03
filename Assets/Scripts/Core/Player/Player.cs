@@ -13,12 +13,17 @@ public class Player : Entity
     #region Variables
     public float attackRange;
     public float attackDistance;
+
+    public List<ParticleSystem> slashes= new List<ParticleSystem>();
+    [HideInInspector] public int comboCount=0;
+    public float comboTime;
     #endregion
     public static Player instance;
 
     public GameObject follower;
 
     public Vector2 faceOrientation;
+
     protected override void Awake()
     {
         base.Awake();	
@@ -46,12 +51,11 @@ public class Player : Entity
         Vector2 input = InputHandling.InputHandler.move.GetValue();
         if (input == Vector2.zero)
         {
-            Gizmos.DrawWireSphere(new Vector3(facingRight * attackDistance + transform.position.x, transform.position.y, transform.position.z), attackRange);
+            Gizmos.DrawWireSphere(new Vector3(faceOrientation.x * attackDistance + transform.position.x, faceOrientation.y * attackDistance + transform.position.y, transform.position.z), attackRange);
         }
         else
         {
             Gizmos.DrawWireSphere(new Vector3(attackDistance * input.x + transform.position.x, transform.position.y, transform.position.z + input.y * attackDistance), attackRange);
-
         }
     }
 
