@@ -5,15 +5,15 @@ using UnityEngine;
 [System.Serializable]
 public class Stat
 {
-    [SerializeField] private float _startValue;
+    public float startValue;
 
     [SerializeField] private List<float> _modifiers;
 
     public void AddModifier(float modifier)=>_modifiers.Add(modifier);
-
+    public void RemoveModifier(float modifier) => _modifiers.Remove(modifier);
     public float GetValue()
     {
-        float value = _startValue;
+        float value = startValue;
 
         foreach (var modifier in _modifiers)
             value += modifier;

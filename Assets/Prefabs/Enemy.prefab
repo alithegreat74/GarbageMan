@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1d821a710154c144adbeffa478c25bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  items: []
   detectionRange: 100
   minDistance: 0.4
   jumpPower: 0.3
@@ -97,16 +98,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed:
-    _startValue: 0.75
+    startValue: 0.75
     _modifiers: []
   attackPower:
-    _startValue: 1
+    startValue: 0
     _modifiers: []
   health:
-    _startValue: 200
+    startValue: 0
     _modifiers: []
   knockback:
-    _startValue: 0
+    startValue: 0
     _modifiers: []
   _currentHealth: 0
   _cameraShakeIntensity: 7

@@ -9,12 +9,11 @@ namespace UI
     {
         private Stats _stats;
 
-        private Slider _slider;
+        [SerializeField] private Slider _slider;
 
         private void Start()
         {
             _stats = GetComponentInParent<Stats>();
-            _slider = GetComponent<Slider>();
             _stats.onHealthChanged += OnHealthChanged;
 
             _slider.maxValue = _stats.health.GetValue();
