@@ -49,7 +49,7 @@ public class Player : Entity
         Vector2 input = InputHandling.InputHandler.move.GetValue();
         if (input == Vector2.zero)
         {
-            Gizmos.DrawWireSphere(new Vector3(facingRight * attackDistance + transform.position.x, transform.position.y, transform.position.z), attackRange);
+            Gizmos.DrawWireSphere(new Vector3(faceOrientation.x * attackDistance + transform.position.x, faceOrientation.y * attackDistance + transform.position.y, transform.position.z), attackRange);
         }
         else
         {

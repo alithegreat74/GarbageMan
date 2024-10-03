@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerAttackState : PlayerState
 {
+    
 
     public PlayerAttackState(Entity entity, Statemachine stateMachine, string animBoolName, Player player) : base(entity, stateMachine, animBoolName, player)
     {
@@ -21,15 +22,26 @@ public class PlayerAttackState : PlayerState
         base.Update();
 
         Vector2 input = InputHandling.InputHandler.move.GetValue();
+        Vector3 playerPos = player.transform.position;
 
+        player.SetVelocity(player.stats.moveSpeed.GetValue() * input.x, rb.velocity.y, player.stats.moveSpeed.GetValue() * input.y);
+
+        float targetAngle = 0;
         if (input == Vector2.zero)
+        {
             player.slashParticle.gameObject.transform.position = 
-                new Vector3(player.facingRight * player.attackDistance/2 + player.transform.position.x, player.transform.position.y, player.transform.position.z);
+                new Vector3(player.faceOrientation.x * player.attackDistance/2 + playerPos.x, playerPos.y, player.faceOrientation.y * player.attackDistance / 2 + playerPos.z);
+
+            targetAngle = Mathf.Atan2(player.faceOrientation.x, player.faceOrientation.y) * Mathf.Rad2Deg;
+        }
         else
+        {
             player.slashParticle.gameObject.transform.position = 
-                new Vector3(player.attackDistance/2 * input.x + player.transform.position.x, player.transform.position.y, player.transform.position.z + input.y * player.attackDistance);
+                new Vector3(player.attackDistance/2 * input.x + playerPos.x, playerPos.y, playerPos.z + input.y * player.attackDistance);
+
+            targetAngle = Mathf.Atan2(input.x, input.y) * Mathf.Rad2Deg;
+        }
         
-        var targetAngle = Mathf.Atan2(input.x, input.y) * Mathf.Rad2Deg;
         player.slashParticle.gameObject.transform.rotation = Quaternion.Euler(82.5f, targetAngle + 90, 0f);
 
         if (triggerCalled)

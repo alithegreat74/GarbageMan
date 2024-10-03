@@ -14,6 +14,7 @@ namespace SceneManagemnet
         private void Start()
         {
             _startScene = _startObject;
+            UnloadScenes();
             LoadScene(_startScene);
         }
 
