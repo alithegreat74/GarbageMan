@@ -134,16 +134,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed:
-    _startValue: 6
+    startValue: 6
     _modifiers: []
   attackPower:
-    _startValue: 5
+    startValue: 0
     _modifiers: []
   health:
-    _startValue: 100
+    startValue: 0
     _modifiers: []
   knockback:
-    _startValue: 15
+    startValue: 0
     _modifiers: []
   _currentHealth: 0
   _cameraShakeIntensity: 1.5
