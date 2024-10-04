@@ -63,7 +63,7 @@ namespace Level
 
             currentCount = intialSpawnNumber;
             GenerateWave();
-
+            Debug.Log("Generation");
         }
 
         private void GenerateWave()
@@ -78,9 +78,9 @@ namespace Level
                 _enemyCounts[i] = spawn.spawnRate * currentCount / _sumOfRates;
                 i++;
             }
-
             onNewWaveGenerated?.Invoke(_currentWave);
             onEnemiesUpdated?.Invoke(currentCount);
+            
             StartCoroutine(SpawnEnemies(_enemyCounts));
         }
 

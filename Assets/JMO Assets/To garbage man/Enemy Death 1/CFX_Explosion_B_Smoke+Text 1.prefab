@@ -4861,7 +4861,7 @@ ParticleSystem:
   m_GameObject: {fileID: 1289377929907018}
   serializedVersion: 7
   lengthInSec: 0.2
-  simulationSpeed: 1
+  simulationSpeed: 3
   stopAction: 0
   cullingMode: 1
   ringBufferMode: 0
@@ -9417,7 +9417,6 @@ GameObject:
   - component: {fileID: 4977646799359860}
   - component: {fileID: 198194127032045410}
   - component: {fileID: 199200332811060622}
-  - component: {fileID: 114566962382578006}
   - component: {fileID: -6158122016324149799}
   m_Layer: 0
   m_Name: CFX_Explosion_B_Smoke+Text 1
@@ -14113,19 +14112,6 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!114 &114566962382578006
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1892078723244562}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fd2e8874f60266498a388d7229a1bac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnlyDeactivate: 0
 --- !u!114 &-6158122016324149799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14139,4 +14125,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ps: {fileID: 198194127032045410}
-  destroyTime: 0.5
+  destroyTime: 2

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1176116877}
   - component: {fileID: 2028423843}
   m_Layer: 7
-  m_Name: Health Enemy
+  m_Name: Enemy 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,8 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1d821a710154c144adbeffa478c25bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  items:
-  - {fileID: 6653718732150702887, guid: 66aa107f7e3654a48a3429e495bf6f8e, type: 3}
+  items: []
   detectionRange: 100
   minDistance: 0.4
   jumpPower: 0.3
@@ -102,10 +101,10 @@ MonoBehaviour:
     startValue: 0.75
     _modifiers: []
   attackPower:
-    startValue: 5
+    startValue: 1
     _modifiers: []
   health:
-    startValue: 2
+    startValue: 3
     _modifiers: []
   knockback:
     startValue: 0
@@ -125,7 +124,7 @@ GameObject:
   - component: {fileID: 1705872406636244925}
   - component: {fileID: 1705872406636244924}
   - component: {fileID: 2877027426252342444}
-  - component: {fileID: 7758559049878539098}
+  - component: {fileID: 8831287039842144750}
   m_Layer: 7
   m_Name: Square
   m_TagString: Untagged
@@ -186,8 +185,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 40ef1f076e3cc874cb79737fba3ec408, type: 3}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 21300000, guid: 876862e9f12040b41b5c0bbebec6082a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -230,7 +229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sr: {fileID: 1705872406636244925}
---- !u!114 &7758559049878539098
+--- !u!114 &8831287039842144750
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
