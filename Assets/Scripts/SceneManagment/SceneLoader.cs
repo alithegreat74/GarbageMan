@@ -16,7 +16,6 @@ namespace SceneManagemnet
             _startScene = _startObject;
             UnloadScenes();
             LoadScene(_startScene);
-            Cursor.visible = false;
         }
 
         private static void LoadScene(SceneObject scene)
