@@ -47,10 +47,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1d821a710154c144adbeffa478c25bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  items:
-  - {fileID: 6653718732150702887, guid: 83d0d10e2f536244994c1d3d058696ad, type: 3}
   detectionRange: 100
   minDistance: 0.4
+  items:
+  - {fileID: 6653718732150702887, guid: 66aa107f7e3654a48a3429e495bf6f8e, type: 3}
   jumpPower: 0.3
   jumpDuration: 0.3
   knockbackDuration: 0.2
