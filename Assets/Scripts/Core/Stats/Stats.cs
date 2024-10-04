@@ -42,6 +42,9 @@ public class Stats : MonoBehaviour
     public void Heal(float amount)
     {
         _currentHealth += amount;
+        if (_currentHealth >= health.GetValue())
+            _currentHealth=health.GetValue();
+
         onHealthChanged?.Invoke(_currentHealth);
     }
 
