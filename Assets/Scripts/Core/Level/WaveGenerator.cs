@@ -37,8 +37,10 @@ namespace Level
         [SerializeField] private float zMax;
         [SerializeField] private float zMin;
         [SerializeField] private float enemyY;
-
+        [Header("UI")]
         [SerializeField] private GameObject winningUI;
+        [Header("Audio")]
+        [SerializeField] private List<AudioSource> audioSources;
 
         private List<int> _enemyCounts=new List<int>();
         private int _sumOfRates;
@@ -76,6 +78,8 @@ namespace Level
                 Time.timeScale = 0.0f;
                 winningUI.SetActive(true);
             }
+
+            
 
             int i = 0;
             foreach(EnemySpawn spawn in enemySpawnList)
@@ -125,6 +129,14 @@ namespace Level
         }
         private IEnumerator ReSpawnWave()
         {
+            try
+            {
+                audioSources[_currentWave-1].Play();
+            }
+            catch
+            {
+
+            }
             yield return new WaitForSeconds(waitTime);
             currentCount += spawnIncrement;
             _enemyDeathCounter= 0;
