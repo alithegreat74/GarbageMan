@@ -16,6 +16,11 @@ namespace InputHandling
             Trigger = false;
         }
         public bool GetValue() => Trigger;
+
+        public void Reset()
+        {
+            Trigger= false;
+        }
        
     }
     public class VectorTrigger
@@ -25,6 +30,10 @@ namespace InputHandling
         public void Trigger(Vector2 val)
         {
             this.Value = val;
+        }
+        public void Reset()
+        {
+            Value = Vector2.zero;
         }
         public Vector2 GetValue() => Value;
     }

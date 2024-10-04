@@ -38,6 +38,8 @@ namespace Level
         [SerializeField] private float zMin;
         [SerializeField] private float enemyY;
 
+        [SerializeField] private GameObject winningUI;
+
         private List<int> _enemyCounts=new List<int>();
         private int _sumOfRates;
 
@@ -70,7 +72,10 @@ namespace Level
         {
             _currentWave++;
             if (_currentWave > maxWaveNumber)
-                return;
+            {
+                Time.timeScale = 0.0f;
+                winningUI.SetActive(true);
+            }
 
             int i = 0;
             foreach(EnemySpawn spawn in enemySpawnList)

@@ -9,7 +9,7 @@ namespace CameraRelated
     {
         private void OnEnable()
         {
-            GetComponent<CinemachineVirtualCamera>().Follow = Player.instance.follower.transform;
+            GetComponent<CinemachineVirtualCamera>().Follow = Player.instance?.follower.transform;
         }
     }
 

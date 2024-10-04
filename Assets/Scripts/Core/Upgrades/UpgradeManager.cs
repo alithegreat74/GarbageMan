@@ -23,7 +23,7 @@ public class UpgradeManager : MonoBehaviour
         if (_upgrades.ContainsKey(name.type))
             return false;
 
-        var stats=Player.instance.GetComponent<Stats>();
+        var stats=Player.instance?.GetComponent<Stats>();
 
         switch(name.type)
         {
@@ -49,7 +49,7 @@ public class UpgradeManager : MonoBehaviour
         if (!_upgrades.ContainsKey(name.type))
             return;
 
-        var stats = Player.instance.GetComponent<Stats>();
+        var stats = Player.instance?.GetComponent<Stats>();
 
         switch (name.type)
         {

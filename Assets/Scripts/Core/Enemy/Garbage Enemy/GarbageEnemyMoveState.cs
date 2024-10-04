@@ -25,6 +25,9 @@ public class GarbageEnemyMoveState:GarbageEnemyState
     public override void Update()
     {
         base.Update();
+
+        if (Player.instance == null)
+            return;
         Vector3 playerDirection = enemy.PlayerDirection();
         enemy.Move(playerDirection, _speed);
         if(enemy.PlayerDistance()<=enemy.minDistance)
