@@ -12,7 +12,7 @@ public class GarbageEnemyMoveState:GarbageEnemyState
     public override void Enter()
     {
         base.Enter();
-        _speed = UnityEngine.Random.Range(enemy.stats.moveSpeed.GetValue() - 0.25f, enemy.stats.moveSpeed.GetValue() - 0.25f);
+        _speed = UnityEngine.Random.Range(enemy.stats.moveSpeed.GetValue() - 0.25f, enemy.stats.moveSpeed.GetValue() + 0.5f);
     }
 
     public override void Exit()
