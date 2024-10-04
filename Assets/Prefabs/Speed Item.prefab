@@ -62,6 +62,7 @@ MonoBehaviour:
   reachTime: 60
   maxDistance: 1000
   lifeTime: 15
+  waitTime: 1
   upgrade: {fileID: 6868322613449508202}
 --- !u!114 &6868322613449508202
 MonoBehaviour:

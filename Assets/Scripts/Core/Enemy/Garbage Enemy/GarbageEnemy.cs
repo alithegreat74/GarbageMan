@@ -54,13 +54,13 @@ public class GarbageEnemy : Enemy
         base.Update();
         statemachine.currentState.Update();
     }
-    public void Move(Vector3 direction)
+    public void Move(Vector3 direction, float speed)
     {
        
         if (_isJumping || _isKnockingBack)
             return;
         _isJumping = true;
-        _currentSequence = transform.DOJump(transform.position + direction * stats.moveSpeed.GetValue(), jumpPower, 1, jumpDuration).OnComplete(() => _isJumping = false);
+        _currentSequence = transform.DOJump(transform.position + direction * speed, jumpPower, 1, jumpDuration).OnComplete(() => _isJumping = false);
     }
 
     public override void Knockback(Stats stats)

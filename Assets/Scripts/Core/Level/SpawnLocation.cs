@@ -19,8 +19,6 @@ public class SpawnLocation : MonoBehaviour
 
         int choice = UnityEngine.Random.Range(0, 2);
 
-        Debug.Log(choice);
-
         switch (choice)
         {
             case 0:

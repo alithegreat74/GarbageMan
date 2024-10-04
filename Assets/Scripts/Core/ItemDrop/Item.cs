@@ -8,15 +8,22 @@ public class Item : MonoBehaviour
     [SerializeField] private float reachTime;
     [SerializeField] private float maxDistance;
     [SerializeField] private float lifeTime;
+    [SerializeField] private float waitTime;
+
+    private Collider collider;
 
     public Upgrade upgrade;
     private void OnEnable()
     {
+        collider = GetComponent<Collider>();
         StartCoroutine(FollowPlayer());        
     }
 
     private IEnumerator FollowPlayer()
     {
+        collider.enabled = false;
+        yield return new WaitForSeconds(waitTime);
+        collider.enabled = true;
         float timer = 0;
         while (timer <= reachTime)
         {

@@ -25,7 +25,7 @@ public class Enemy : Entity
     }
     protected void LateUpdate()
     {
-        if (Vector3.Distance(transform.position, Player.instance.transform.position) >= detectionRange)
+        if (transform.position.y < -4)
             Die();
     }
 
