@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : Entity
 {
@@ -14,6 +15,10 @@ public class Player : Entity
     public float attackRange;
     public float attackDistance;
 
+    [SerializeField] private GameObject deathUI;
+
+    public List<AudioSource> hitAudioSources;
+
     public List<ParticleSystem> slashes= new List<ParticleSystem>();
     [HideInInspector] public int comboCount=0;
     public float comboTime;
@@ -26,8 +31,11 @@ public class Player : Entity
 
     protected override void Awake()
     {
-        base.Awake();	
-        instance = this;
+        base.Awake();
+        if (instance != null)
+            Destroy(instance.gameObject);
+        else
+            instance = this;
     }
     protected override void Start()
     {
@@ -59,4 +67,11 @@ public class Player : Entity
         }
     }
 
+
+    public override void Die()
+    {
+        Time.timeScale = 0;
+        deathUI.SetActive(true);
+        base.Die();
+    }
 }

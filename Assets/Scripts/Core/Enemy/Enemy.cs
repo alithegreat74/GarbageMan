@@ -9,6 +9,7 @@ public class Enemy : Entity
     public float detectionRange;
     public float minDistance;
     [SerializeField] private List<GameObject> items = new List<GameObject>();
+    [SerializeField] protected GameObject hitAudio;
     protected override void Awake()
     {
         base.Awake();
@@ -29,9 +30,21 @@ public class Enemy : Entity
             Die();
     }
 
-    public Vector3 PlayerDirection() => Vector3.Normalize(Player.instance.transform.position - transform.position);
-    public float PlayerDistance()=>Vector3.Distance(transform.position, Player.instance.transform.position);
+    public Vector3 PlayerDirection()
+    {
 
+        if(Player.instance != null)   
+            return Vector3.Normalize(Player.instance.transform.position - transform.position);
+
+        return Vector3.zero;
+    }
+    public float PlayerDistance()
+    {
+        if(Player.instance != null)
+            return Vector3.Distance(transform.position, Player.instance.transform.position);
+
+        return 0;
+    }
     public override void Die()
     {
         base.Die();
@@ -43,5 +56,11 @@ public class Enemy : Entity
 
             Instantiate(item, transform.position, Quaternion.identity);
         }
+    }
+
+    public override void Knockback(Stats stats)
+    {
+        base.Knockback(stats);
+        
     }
 }

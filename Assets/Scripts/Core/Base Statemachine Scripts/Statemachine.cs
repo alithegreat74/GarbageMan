@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Statemachine
 {
-    public State currentState { get; private set; }
+    public State currentState { get; set; }
 
     public void Initialize(State _startState)
     {

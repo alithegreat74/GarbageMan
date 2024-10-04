@@ -42,5 +42,10 @@ namespace SceneManagemnet
             LoadScene(scene);
         }
 
+        public static void Die()
+        {
+            SceneManager.LoadScene("Father", LoadSceneMode.Single);
+        }
+
     }
 }

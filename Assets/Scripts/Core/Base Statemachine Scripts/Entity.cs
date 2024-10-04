@@ -33,8 +33,8 @@ public class Entity : MonoBehaviour
 
     public virtual void Die()
     {
-        Destroy(gameObject);
         onDeath?.Invoke(this);
+        Destroy(gameObject);
     }
 
     public virtual void Knockback(Stats stats)

@@ -1,6 +1,7 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Schema;
 using UnityEngine;
 
 public class Item : MonoBehaviour
@@ -21,6 +22,9 @@ public class Item : MonoBehaviour
 
     private IEnumerator FollowPlayer()
     {
+        if(Player.instance==null)
+            yield break;
+
         collider.enabled = false;
         yield return new WaitForSeconds(waitTime);
         collider.enabled = true;
@@ -38,7 +42,7 @@ public class Item : MonoBehaviour
         if (other.gameObject.layer != LayerMask.NameToLayer("Player"))
             return;
         if (upgrade.type == UpgradeType.Health)
-            Player.instance.GetComponent<Stats>().Heal(upgrade.value);
+            Player.instance?.GetComponent<Stats>().Heal(upgrade.value);
         else
             upgrade.AddUpgrade();
 

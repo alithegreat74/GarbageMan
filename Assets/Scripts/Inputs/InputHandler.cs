@@ -23,7 +23,11 @@ namespace InputHandling
             _inputs.Player.Attack.performed += OnAttack;
 
         }
-
+        private void OnEnable()
+        {
+            attack.Reset();
+            move.Reset();
+        }
         private void OnAttack(InputAction.CallbackContext context)
         {
             StartCoroutine(attack.Trigger_Cor());
@@ -40,6 +44,7 @@ namespace InputHandling
             _inputs.Player.Movement.performed -= OnMove;
             _inputs.Player.Attack.performed -= OnAttack;
         }
+
 
 
 

@@ -65,6 +65,7 @@ public class GarbageEnemy : Enemy
 
     public override void Knockback(Stats stats)
     {
+
         Vector3 direction = transform.position - stats.transform.position;
 
         GameObject obj = Instantiate(knockbackParticle, transform.position, Quaternion.identity);
@@ -106,7 +107,9 @@ public class GarbageEnemy : Enemy
     public override void Die()
     {
         base.Die();
-        GameObject obj=Instantiate(deathParticle, transform.position, Quaternion.identity);
+        GameObject audio = Instantiate(hitAudio);
+        audio.GetComponent<AudioSource>().Play();
+        GameObject obj =Instantiate(deathParticle, transform.position, Quaternion.identity);
         obj.GetComponent<ParticleSystem>().Play();
     }
 }
