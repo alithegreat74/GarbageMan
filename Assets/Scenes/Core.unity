@@ -493,12 +493,24 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 238986026849561351, guid: ae2f6d281939e07478299460bd93cce0, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 724237519437814135, guid: ae2f6d281939e07478299460bd93cce0, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 724237519437814135, guid: ae2f6d281939e07478299460bd93cce0, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 899873479567171995, guid: ae2f6d281939e07478299460bd93cce0, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 899873479567171995, guid: ae2f6d281939e07478299460bd93cce0, type: 3}
+      propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6302461697458027440, guid: ae2f6d281939e07478299460bd93cce0, type: 3}
@@ -572,6 +584,14 @@ PrefabInstance:
     - target: {fileID: 7204091398880413148, guid: ae2f6d281939e07478299460bd93cce0, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8476173701160571646, guid: ae2f6d281939e07478299460bd93cce0, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8476173701160571646, guid: ae2f6d281939e07478299460bd93cce0, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae2f6d281939e07478299460bd93cce0, type: 3}

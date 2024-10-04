@@ -17,6 +17,8 @@ public class Player : Entity
 
     [SerializeField] private GameObject deathUI;
 
+    public List<AudioSource> hitAudioSources;
+
     public List<ParticleSystem> slashes= new List<ParticleSystem>();
     [HideInInspector] public int comboCount=0;
     public float comboTime;
@@ -47,7 +49,6 @@ public class Player : Entity
     protected override void Update()
     {
         base.Update();
-        Debug.Log(InputHandling.InputHandler.attack.GetValue());
         anim.SetFloat("xVelocity",faceOrientation.x);
         anim.SetFloat("zVelocity",faceOrientation.y);
     }

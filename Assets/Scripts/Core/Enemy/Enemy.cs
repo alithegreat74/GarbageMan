@@ -9,6 +9,7 @@ public class Enemy : Entity
     public float detectionRange;
     public float minDistance;
     [SerializeField] private List<GameObject> items = new List<GameObject>();
+    [SerializeField] protected GameObject hitAudio;
     protected override void Awake()
     {
         base.Awake();
@@ -55,5 +56,11 @@ public class Enemy : Entity
 
             Instantiate(item, transform.position, Quaternion.identity);
         }
+    }
+
+    public override void Knockback(Stats stats)
+    {
+        base.Knockback(stats);
+        
     }
 }
