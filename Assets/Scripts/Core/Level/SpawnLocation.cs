@@ -14,21 +14,18 @@ public class SpawnLocation : MonoBehaviour
         float xRight = UnityEngine.Random.Range(cameraTopRight.x, xMax);
         float xLeft = UnityEngine.Random.Range(xMin, cameraBottomLeft.x);
 
-        float zTop = UnityEngine.Random.Range(cameraTopRight.z, zMax);
         float zBottom = UnityEngine.Random.Range(zMin, cameraBottomLeft.z);
 
 
-        int choice = UnityEngine.Random.Range(0, 3);
+        int choice = UnityEngine.Random.Range(0, 2);
+
+        Debug.Log(choice);
 
         switch (choice)
         {
             case 0:
-                return new Vector3(xRight, y, zTop);
-            case 1:
                 return new Vector3(xLeft, y, zBottom);
-            case 2:
-                return new Vector3(xLeft, y, zTop);
-            case 3:
+            case 1:
                 return new Vector3(xRight, y, zBottom);
 
             default:
