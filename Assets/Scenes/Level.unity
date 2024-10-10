@@ -1365,12 +1365,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1487639696}
     - target: {fileID: 3936877384356677808, guid: 5214f5c95acbc7248a210f9517fe65e4, type: 3}
+      propertyPath: maxWaveNumber
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3936877384356677808, guid: 5214f5c95acbc7248a210f9517fe65e4, type: 3}
       propertyPath: spawnIncrement
-      value: 100
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 3936877384356677808, guid: 5214f5c95acbc7248a210f9517fe65e4, type: 3}
       propertyPath: intialSpawnNumber
-      value: 100
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 3936877384356677809, guid: 5214f5c95acbc7248a210f9517fe65e4, type: 3}
       propertyPath: m_RootOrder
